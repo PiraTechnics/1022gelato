@@ -24,3 +24,14 @@ More info soon
 6. create git repo at root, then add files and commit
 
 `git init -b main && git add . && git commit -m "Frontend/Backend monorepo intialized"`
+
+## Local Dev
+
+1. After initial checkout, install dependencies (in both directories)
+   `npm install`
+
+2. Start Strapi
+   `cd backend && npm run start`
+
+3. start Gatsby
+   `cd frontend && gatsby clean && gatsby develop`
