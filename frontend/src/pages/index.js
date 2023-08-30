@@ -1,18 +1,21 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { Image } from "react-bootstrap"
+import Home from "../images/home.jpg"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <StaticImage
+    {/*     <StaticImage
       src="../images/home.jpg"
       loading="eager"
       formats={["auto", "webp", "avif"]}
       alt=""
       width={500}
-    />
+    /> */}
+    <Image src={Home} />
   </Layout>
 )
 

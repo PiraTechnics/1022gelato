@@ -26,32 +26,25 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <Container fluid>
+    <Container fluid style={{ width: "100vw" }}>
       <Row>
-        <Col xs={3}>
+        <Col md={3}>
           <Sidebar />
         </Col>
-        <Col>
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: `var(--size-content)`,
-              padding: `var(--size-gutter)`,
-            }}
-          >
-            <main>{children}</main>
-            <footer
-              style={{
-                marginTop: `var(--space-5)`,
-                fontSize: `var(--font-sm)`,
-              }}
-            >
-              {new Date().getFullYear()} &middot;{" "}
-              <i>{data.site.siteMetadata.title}</i>
-            </footer>
-          </div>
+        <Col md={9} className="p-0">
+          <main>{children}</main>
         </Col>
       </Row>
+      <footer
+        style={{
+          marginTop: `var(--space-5)`,
+          fontSize: `var(--font-sm)`,
+        }}
+        className="text-center"
+      >
+        &copy; {new Date().getFullYear()} -{" "}
+        <i>{data.site.siteMetadata.title}</i>
+      </footer>
     </Container>
   )
 }
