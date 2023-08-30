@@ -1,29 +1,40 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import { Image } from "react-bootstrap"
-import Home from "../images/home.jpg"
+import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const IndexPage = ({ data }) => {
+	const homeImg = getImage(data.strapiPage.hero.localFile.childImageSharp);
 
-const IndexPage = () => (
-  <Layout>
-    {/*     <StaticImage
-      src="../images/home.jpg"
-      loading="eager"
-      formats={["auto", "webp", "avif"]}
-      alt=""
-      width={500}
-    /> */}
-    <Image src={Home} />
-  </Layout>
-)
+	return (
+		<Layout>
+			<GatsbyImage image={homeImg} />
+		</Layout>
+	);
+};
 
 /**
  * Head export to define metadata for the page
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="Home" />
+export const Head = () => <Seo title="Home" />;
 
-export default IndexPage
+export default IndexPage;
+
+export const pageQuery = graphql`
+	query {
+		strapiPage(title: { eq: "Home" }) {
+			title
+			hero {
+				name
+				localFile {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+			}
+		}
+	}
+`;
