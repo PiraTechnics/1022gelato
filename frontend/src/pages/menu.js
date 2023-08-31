@@ -14,7 +14,7 @@ const MenuPage = ({ data }) => {
 		<Layout>
 			<GatsbyImage image={heroImg} alt="a bunch of ice cream, side by side" />
 			<Row>
-				<h3 className="text-center">Menu</h3>
+				<h3 className="text-center font-monospace mt-3">Menu</h3>
 				<Col>
 					<hr className="border-2 mx-5" />
 				</Col>
@@ -23,7 +23,7 @@ const MenuPage = ({ data }) => {
 				{menuItems.map((item) => {
 					return (
 						<Col xs={6} className="text-center menu-item">
-							<div>{item.node.name}</div>
+							<div className="text-decoration-underline">{item.node.name}</div>
 							<div>${item.node.price}</div>
 						</Col>
 					);
