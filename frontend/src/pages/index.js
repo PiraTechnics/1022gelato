@@ -5,11 +5,11 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const IndexPage = ({ data }) => {
-	const homeImg = getImage(data.strapiPage.hero.localFile.childImageSharp);
+	const homeImg = getImage(data.strapiHomepage.hero.localFile.childImageSharp);
 
 	return (
 		<Layout>
-			<GatsbyImage image={homeImg} />
+			<GatsbyImage image={homeImg} alt="Cappuchino with stylish foam art" />
 		</Layout>
 	);
 };
@@ -25,10 +25,9 @@ export default IndexPage;
 
 export const pageQuery = graphql`
 	query {
-		strapiPage(title: { eq: "Home" }) {
-			title
+		strapiHomepage {
+			welcome
 			hero {
-				name
 				localFile {
 					childImageSharp {
 						gatsbyImageData
