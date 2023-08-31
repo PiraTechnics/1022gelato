@@ -59,13 +59,6 @@ export const pageQuery = graphql`
 					type
 					name
 					price
-					image {
-						localFile {
-							childImageSharp {
-								gatsbyImageData
-							}
-						}
-					}
 				}
 			}
 		}
