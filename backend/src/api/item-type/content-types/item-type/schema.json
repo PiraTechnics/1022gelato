@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "item_types",
+  "info": {
+    "singularName": "item-type",
+    "pluralName": "item-types",
+    "displayName": "Item Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

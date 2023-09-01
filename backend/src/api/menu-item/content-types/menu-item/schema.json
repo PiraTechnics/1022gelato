@@ -18,14 +18,13 @@
     "price": {
       "type": "decimal"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "coffee",
-        "tea",
-        "gelato",
-        "baked goods"
-      ]
+    "item_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item-type.item-type"
+    },
+    "detail": {
+      "type": "string"
     }
   }
 }

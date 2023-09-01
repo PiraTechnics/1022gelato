@@ -9,8 +9,8 @@
  */
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+	path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
 	siteMetadata: {
@@ -25,7 +25,7 @@ module.exports = {
 			options: {
 				apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
 				accessToken: process.env.STRAPI_TOKEN,
-				collectionTypes: [`menu-item`, `page`],
+				collectionTypes: [`page-metadata`, `item-type`, `menu-item`],
 				singleTypes: [`homepage`, `menu`],
 			},
 		},

@@ -7,8 +7,15 @@ import Seo from "../components/seo";
 
 const MenuPage = ({ data }) => {
 	const heroImg = getImage(data.strapiMenu.hero.localFile.childImageSharp);
+
+	const menuTypes = data.allStrapiItemType.edges;
 	const menuItems = data.allStrapiMenuItem.edges;
-	console.log(menuItems);
+
+	//local currency
+	let USDollar = new Intl.NumberFormat("en-US", {
+		style: "currency",
+		currency: "USD",
+	});
 
 	return (
 		<Layout>
@@ -19,16 +26,35 @@ const MenuPage = ({ data }) => {
 					<hr className="border-2 mx-5" />
 				</Col>
 			</Row>
-			<Row>
-				{menuItems.map((item) => {
+			{React.Children.toArray(
+				menuTypes.map((type) => {
 					return (
-						<Col xs={6} className="text-center menu-item">
-							<div className="text-decoration-underline">{item.node.name}</div>
-							<div>${item.node.price}</div>
-						</Col>
+						<Row className="mb-5 pb-2">
+							<h5 className="text-center font-monospace text-decoration-underline pb-3">
+								{type.node.name}
+							</h5>
+							{React.Children.toArray(
+								menuItems.map((item) => {
+									if (item.node.item_type.name === type.node.name) {
+										//matching type, render it
+										return (
+											<Col xs={6} className="text-center menu-item">
+												<div className="text-decoration-underline">
+													{item.node.name}
+												</div>
+												<div>{USDollar.format(item.node.price)}</div>
+											</Col>
+										);
+									} else {
+										//Not matching type, skip it
+										return <></>;
+									}
+								})
+							)}
+						</Row>
 					);
-				})}
-			</Row>
+				})
+			)}
 		</Layout>
 	);
 };
@@ -56,9 +82,21 @@ export const pageQuery = graphql`
 		allStrapiMenuItem {
 			edges {
 				node {
-					type
+					id
 					name
+					detail
 					price
+					item_type {
+						name
+					}
+				}
+			}
+		}
+		allStrapiItemType {
+			edges {
+				node {
+					id
+					name
 				}
 			}
 		}
