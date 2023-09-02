@@ -4,7 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page Metadata",
+    "displayName": "Page",
     "description": ""
   },
   "options": {
@@ -25,6 +25,9 @@
         "videos",
         "audios"
       ]
+    },
+    "header": {
+      "type": "string"
     }
   }
 }

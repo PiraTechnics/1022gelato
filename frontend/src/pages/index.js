@@ -1,15 +1,16 @@
-import * as React from "react"
+import * as React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const IndexPage = ({ data }) => {
-	const homeImg = getImage(data.strapiHomepage.hero.localFile.childImageSharp);
+	const homeImg = getImage(data.strapiPage.image.localFile.childImageSharp);
+	const altText = data.strapiPage.image.alternativeText;
 
 	return (
 		<Layout>
-			<GatsbyImage image={homeImg} alt="Cappuchino with stylish foam art" />
+			<GatsbyImage image={homeImg} alt={altText} />
 		</Layout>
 	);
 };
@@ -25,9 +26,11 @@ export default IndexPage;
 
 export const pageQuery = graphql`
 	query {
-		strapiHomepage {
-			welcome
-			hero {
+		strapiPage(name: { eq: "Home" }) {
+			name
+			id
+			image {
+				alternativeText
 				localFile {
 					childImageSharp {
 						gatsbyImageData
