@@ -30,7 +30,7 @@ const Sidebar = () => {
 						<Nav.Link href="/menu" className="link-dark">
 							Menu
 						</Nav.Link>
-						<Nav.Link href="#about" className="link-dark">
+						<Nav.Link href="/about" className="link-dark">
 							About Us
 						</Nav.Link>
 						<Nav.Link href="#catering" className="link-dark">
