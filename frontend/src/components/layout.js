@@ -33,18 +33,18 @@ const Layout = ({ children }) => {
 				</Col>
 				<Col md={9} className="p-0">
 					<main>{children}</main>
+					<footer
+						style={{
+							marginTop: `var(--space-5)`,
+							fontSize: `var(--font-sm)`,
+						}}
+						className="text-center"
+					>
+						&copy; {new Date().getFullYear()} -{" "}
+						<i>{data.site.siteMetadata.title}</i>
+					</footer>
 				</Col>
 			</Row>
-			<footer
-				style={{
-					marginTop: `var(--space-5)`,
-					fontSize: `var(--font-sm)`,
-				}}
-				className="text-center"
-			>
-				&copy; {new Date().getFullYear()} -{" "}
-				<i>{data.site.siteMetadata.title}</i>
-			</footer>
 		</Container>
 	);
 };

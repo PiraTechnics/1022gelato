@@ -1,13 +1,13 @@
-import React from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import Logo from "../images/1022-logo.png"
-import Facebook from "../images/facebook.svg"
-import Instagram from "../images/instagram.svg"
-import Tiktok from "../images/tiktok.svg"
-import { Container, Image, Nav, Navbar, Row, Col } from "react-bootstrap"
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Logo from "../images/1022-logo.png";
+import Facebook from "../images/facebook.svg";
+import Instagram from "../images/instagram.svg";
+import Tiktok from "../images/tiktok.svg";
+import { Container, Image, Nav, Navbar, Row, Col } from "react-bootstrap";
 
 const Sidebar = () => {
-  return (
+	return (
 		<Container
 			fluid
 			className="py-4 justify-content-center"
@@ -66,6 +66,6 @@ const Sidebar = () => {
 			</Navbar>
 		</Container>
 	);
-}
+};
 
-export default Sidebar
+export default Sidebar;
