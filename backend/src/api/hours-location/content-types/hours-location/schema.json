@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hours_locations",
+  "info": {
+    "singularName": "hours-location",
+    "pluralName": "hours-locations",
+    "displayName": "Hours Location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "day_hours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::day-hours.day-hours"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

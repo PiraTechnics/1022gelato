@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout";
 import Seo from "../components/seo";

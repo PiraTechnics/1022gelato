@@ -39,7 +39,7 @@ const Sidebar = () => {
 						<Nav.Link href="#apparel" className="link-dark">
 							Apparel
 						</Nav.Link>
-						<Nav.Link href="#hourslocation" className="link-dark">
+						<Nav.Link href="/hours-location" className="link-dark">
 							Hours & Location
 						</Nav.Link>
 
