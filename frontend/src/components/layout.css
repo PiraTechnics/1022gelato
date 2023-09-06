@@ -225,7 +225,7 @@ pre tt:after {
 
 /*** CUSTOM STUFF ***/
 .layout-container {
-	max-width: 1100px;
+	max-width: 1500px; /*note test this a bit more for sizing*/
 	font-family: "Playfair Display";
 }
 

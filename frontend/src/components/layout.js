@@ -26,12 +26,12 @@ const Layout = ({ children }) => {
 	`);
 
 	return (
-		<Container fluid className="layout-container" style={{ width: "100vw" }}>
+		<Container fluid className="layout-container">
 			<Row>
 				<Col md={3}>
 					<Sidebar />
 				</Col>
-				<Col md={9} className="p-0">
+				<Col md={9}>
 					<main>{children}</main>
 					<footer
 						style={{
