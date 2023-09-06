@@ -1,16 +1,23 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Row } from "react-bootstrap";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const IndexPage = ({ data }) => {
 	const homeImg = getImage(data.strapiPage.image.localFile.childImageSharp);
 	const altText = data.strapiPage.image.alternativeText;
+	const homeHeader = data.strapiPage.header;
 
 	return (
 		<Layout>
-			<GatsbyImage image={homeImg} alt={altText} />
+			<Row className="position-relative">
+				<GatsbyImage image={homeImg} alt={altText} />
+				<h1 className="position-absolute top-50 start-50 translate-middle text-center">
+					{homeHeader}
+				</h1>
+			</Row>
 		</Layout>
 	);
 };
@@ -28,7 +35,7 @@ export const pageQuery = graphql`
 	query {
 		strapiPage(name: { eq: "Home" }) {
 			name
-			id
+			header
 			image {
 				alternativeText
 				localFile {

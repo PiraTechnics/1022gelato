@@ -9,11 +9,17 @@ import Seo from "../components/seo";
 const AboutPage = ({ data }) => {
 	const aboutImg = getImage(data.strapiPage.image.localFile.childImageSharp);
 	const altText = data.strapiPage.image.alternativeText;
+	const aboutHeader = data.strapiPage.header;
 	const aboutContent = data.strapiPage.content.data.content;
 
 	return (
 		<Layout>
-			<GatsbyImage image={aboutImg} alt={altText} />
+			<Row className="position-relative">
+				<GatsbyImage image={aboutImg} alt={altText} />
+				<h1 className="position-absolute top-50 start-50 translate-middle text-center">
+					{aboutHeader}
+				</h1>
+			</Row>
 			{aboutContent && (
 				<Row className="mt-5 px-3">
 					<ReactMarkdown>{aboutContent}</ReactMarkdown>

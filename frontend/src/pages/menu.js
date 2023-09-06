@@ -6,8 +6,9 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const MenuPage = ({ data }) => {
-	const heroImg = getImage(data.strapiPage.image.localFile.childImageSharp);
+	const menuImg = getImage(data.strapiPage.image.localFile.childImageSharp);
 	const altText = data.strapiPage.image.alternativeText;
+	const menuHeader = data.strapiPage.header;
 
 	const menuTypes = data.allStrapiItemType.edges;
 	const menuItems = data.allStrapiMenuItem.edges;
@@ -20,9 +21,14 @@ const MenuPage = ({ data }) => {
 
 	return (
 		<Layout>
-			<GatsbyImage image={heroImg} alt={altText} />
+			<Row className="position-relative">
+				<GatsbyImage image={menuImg} alt={altText} />
+				{/* 				<h1 className="position-absolute top-50 start-50 translate-middle text-center">
+					{menuHeader}
+				</h1> */}
+			</Row>
 			<Row>
-				<h3 className="text-center font-monospace mt-3">Menu</h3>
+				<h3 className="text-center font-monospace mt-3">{menuHeader}</h3>
 				<Col>
 					<hr className="border-2 mx-5" />
 				</Col>
@@ -73,7 +79,7 @@ export const pageQuery = graphql`
 	query {
 		strapiPage(name: { eq: "Menu" }) {
 			name
-			id
+			header
 			image {
 				alternativeText
 				localFile {

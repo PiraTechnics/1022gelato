@@ -33,9 +33,9 @@ const AboutPage = ({ data }) => {
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3338.665974050682!2d-117.38128058736497!3d33.19663276231085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc6f73ee3dc409%3A0xb30b7306d3402ba7!2s1022%20Cafe%20%26%20Gelateria!5e0!3m2!1sen!2sus!4v1693946660722!5m2!1sen!2sus"
 					height="450"
 					style={{ border: "0" }}
-					allowfullscreen=""
+					allowFullScreen=""
 					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
+					referrerPolicy="no-referrer-when-downgrade"
 				></iframe>
 			</Row>
 			{hoursContent && (
@@ -58,24 +58,26 @@ const AboutPage = ({ data }) => {
 				</Col>
 				<h4 className="text-decoration-underline">Hours</h4>
 				<Col>
-					{dayHours.map((day) => {
-						return (
-							<Row>
-								<Col className="fw-bold text-end">{day.weekday}:</Col>
-								<Col className="text-start">
-									<div>
-										{day.closed ? (
-											"Closed"
-										) : (
-											<div>
-												{formatTime(day.from)} - {formatTime(day.to)}
-											</div>
-										)}
-									</div>
-								</Col>
-							</Row>
-						);
-					})}
+					{React.Children.toArray(
+						dayHours.map((day) => {
+							return (
+								<Row>
+									<Col className="fw-bold text-end">{day.weekday}:</Col>
+									<Col className="text-start">
+										<div>
+											{day.closed ? (
+												"Closed"
+											) : (
+												<div>
+													{formatTime(day.from)} - {formatTime(day.to)}
+												</div>
+											)}
+										</div>
+									</Col>
+								</Row>
+							);
+						})
+					)}
 				</Col>
 			</Row>
 			<Row className="mt-5 mx-auto p-5 border border-2 border-tertiary rounded">
