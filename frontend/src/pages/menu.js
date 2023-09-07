@@ -46,9 +46,13 @@ const MenuPage = ({ data }) => {
 										//matching type, render it
 										return (
 											<Col xs={6} className="text-center menu-item">
-												<div className="text-decoration-underline">
+												<span className="text-decoration-underline">
 													{item.node.name}
-												</div>
+												</span>
+												<span style={{ fontSize: ".75em" }}>
+													{item.node.vegan && " (V)"}
+													{item.node.gluten_free && " (GF)"}
+												</span>
 												<div>{USDollar.format(item.node.price)}</div>
 											</Col>
 										);
@@ -99,6 +103,8 @@ export const pageQuery = graphql`
 					item_type {
 						name
 					}
+					vegan
+					gluten_free
 				}
 			}
 		}

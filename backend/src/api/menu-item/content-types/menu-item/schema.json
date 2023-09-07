@@ -29,6 +29,10 @@
     "vegan": {
       "type": "boolean",
       "default": false
+    },
+    "gluten_free": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
