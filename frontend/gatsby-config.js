@@ -27,6 +27,7 @@ module.exports = {
 				accessToken: process.env.STRAPI_TOKEN,
 				collectionTypes: [
 					`page`,
+					`social-media`,
 					`item-type`,
 					`menu-item`,
 					`day-hours`,

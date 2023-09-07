@@ -1,10 +1,8 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../images/1022-logo.png";
-import Facebook from "../images/facebook.svg";
-import Instagram from "../images/instagram.svg";
-import Tiktok from "../images/tiktok.svg";
 import { Container, Image, Nav, Navbar, Row, Col } from "react-bootstrap";
 
 const Sidebar = () => {
@@ -19,14 +17,31 @@ const Sidebar = () => {
 					}
 				}
 			}
+			allStrapiSocialMedia {
+				edges {
+					node {
+						id
+						link
+						name
+						icon {
+							localFile {
+								childImageSharp {
+									gatsbyImageData
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	`);
 	const menuItems = data.allStrapiPage.edges;
+	const socialItems = data.allStrapiSocialMedia.edges;
 
 	return (
 		<Container
 			fluid
-			className="py-4 justify-content-center"
+			className="py-2 justify-content-center"
 			/* style={{ maxWidth: "200px", minWidth: "150px" }} */
 		>
 			<Navbar expand="md" className="flex-md-column ">
@@ -40,32 +55,40 @@ const Sidebar = () => {
 						defaultActiveKey="#home"
 						className="flex-md-column align-items-center text-center"
 					>
-						{React.Children.toArray(
-							menuItems.map((item) => {
-								return (
-									<Nav.Link className="link-dark" href={item.node.path}>
-										{item.node.name}
-									</Nav.Link>
-								);
-							})
-						)}
+						<Container fluid>
+							{React.Children.toArray(
+								menuItems.map((item) => {
+									return (
+										<Row>
+											<Nav.Link
+												className="link-dark link-opacity-50-hover"
+												href={item.node.path}
+											>
+												<div className="menu-item">{item.node.name}</div>
+											</Nav.Link>
+										</Row>
+									);
+								})
+							)}
+						</Container>
 						<Row id="sidebar-social" className="justify-content-center">
 							<hr className="opacity-75" />
-							<Col>
-								<a href="#home">
-									<Image src={Facebook} width="25px" />
-								</a>
-							</Col>
-							<Col>
-								<a href="#home">
-									<Image src={Instagram} width="25px" />
-								</a>
-							</Col>
-							<Col>
-								<a href="#home">
-									<Image src={Tiktok} width="25px" />
-								</a>
-							</Col>
+							{React.Children.toArray(
+								socialItems.map((item) => {
+									return (
+										<Col xs={2} md={4} lg={3} xl={2}>
+											<a href={item.node.link} target="_blank" rel="noreferrer">
+												<GatsbyImage
+													image={getImage(
+														item.node.icon.localFile.childImageSharp
+													)}
+													alt={item.node.name}
+												/>
+											</a>
+										</Col>
+									);
+								})
+							)}
 						</Row>
 					</Nav>
 				</Navbar.Collapse>

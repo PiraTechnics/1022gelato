@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 import ContactForm from "../components/contact-form";
 
-const AboutPage = ({ data }) => {
+const HoursLocation = ({ data }) => {
 	const hoursImg = getImage(data.strapiPage.image.localFile.childImageSharp);
 	const altText = data.strapiPage.image.alternativeText;
 	const hoursContent = data.strapiPage.content.data.content;
@@ -94,7 +94,7 @@ const AboutPage = ({ data }) => {
  */
 export const Head = () => <Seo title="Hours & Location" />;
 
-export default AboutPage;
+export default HoursLocation;
 
 const formatTime = (hourString) => {
 	let hour;
@@ -112,7 +112,7 @@ const formatTime = (hourString) => {
 
 export const pageQuery = graphql`
 	query {
-		strapiPage(name: { eq: "Hours and Location" }) {
+		strapiPage(name: { eq: "Hours & Location" }) {
 			name
 			header
 			id
