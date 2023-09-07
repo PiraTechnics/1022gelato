@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../images/1022-logo.png";
 import Facebook from "../images/facebook.svg";
@@ -7,6 +8,21 @@ import Tiktok from "../images/tiktok.svg";
 import { Container, Image, Nav, Navbar, Row, Col } from "react-bootstrap";
 
 const Sidebar = () => {
+	const data = useStaticQuery(graphql`
+		query menuItemsQuery {
+			allStrapiPage {
+				edges {
+					node {
+						id
+						name
+						path
+					}
+				}
+			}
+		}
+	`);
+	const menuItems = data.allStrapiPage.edges;
+
 	return (
 		<Container
 			fluid
@@ -24,25 +40,15 @@ const Sidebar = () => {
 						defaultActiveKey="#home"
 						className="flex-md-column align-items-center text-center"
 					>
-						<Nav.Link href="/" className="link-dark">
-							Home
-						</Nav.Link>
-						<Nav.Link href="/menu" className="link-dark">
-							Menu
-						</Nav.Link>
-						<Nav.Link href="/about" className="link-dark">
-							About Us
-						</Nav.Link>
-						<Nav.Link href="#catering" className="link-dark">
-							Catering
-						</Nav.Link>
-						<Nav.Link href="#apparel" className="link-dark">
-							Apparel
-						</Nav.Link>
-						<Nav.Link href="/hours-location" className="link-dark">
-							Hours & Location
-						</Nav.Link>
-
+						{React.Children.toArray(
+							menuItems.map((item) => {
+								return (
+									<Nav.Link className="link-dark" href={item.node.path}>
+										{item.node.name}
+									</Nav.Link>
+								);
+							})
+						)}
 						<Row id="sidebar-social" className="justify-content-center">
 							<hr className="opacity-75" />
 							<Col>
