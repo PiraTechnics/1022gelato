@@ -45,7 +45,7 @@ const Sidebar = () => {
 			/* style={{ maxWidth: "200px", minWidth: "150px" }} */
 		>
 			<Navbar expand="md" className="flex-md-column ">
-				<Navbar.Brand>
+				<Navbar.Brand className="mx-md-auto">
 					<Image src={Logo} className="mb-1" />
 				</Navbar.Brand>
 				<Navbar.Toggle />
