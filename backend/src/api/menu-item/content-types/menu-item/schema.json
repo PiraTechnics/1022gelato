@@ -25,6 +25,10 @@
     },
     "detail": {
       "type": "string"
+    },
+    "vegan": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
