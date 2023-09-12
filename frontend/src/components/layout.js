@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
 				<Col md={3}>
 					<Sidebar />
 				</Col>
-				<Col md={9}>
+				<Col md={9} className="pt-2 ps-4 pe-4">
 					<main>{children}</main>
 					<footer
 						style={{

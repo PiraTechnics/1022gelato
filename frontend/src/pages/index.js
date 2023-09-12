@@ -40,7 +40,7 @@ export const pageQuery = graphql`
 				alternativeText
 				localFile {
 					childImageSharp {
-						gatsbyImageData
+						gatsbyImageData(layout: FULL_WIDTH)
 					}
 				}
 			}
