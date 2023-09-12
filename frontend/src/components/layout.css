@@ -233,3 +233,33 @@ pre tt:after {
 	font-size: 1.1em;
 	letter-spacing: 1px;
 }
+
+/* Responsive sidebar font */
+
+/* Bootstrap XL and up */
+@media (min-width: 1200px) {
+	.menu-item {
+		font-size: 1.3rem;
+	}
+}
+
+/* Bootstrap Large */
+@media (max-width: 1199px) {
+	.menu-item {
+		font-size: 1.2rem;
+	}
+}
+
+/* Bootstrap Medium */
+@media (max-width: 991px) {
+	.menu-item {
+		font-size: 1.1rem;
+	}
+}
+
+/*Bootstrap Small (Nav Collapse)*/
+@media (max-width: 767px) {
+	.menu-item {
+		font-size: 1.3rem;
+	}
+}

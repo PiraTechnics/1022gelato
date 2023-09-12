@@ -73,11 +73,11 @@ const Sidebar = () => {
 							)}
 						</Container>
 						<Row id="sidebar-social" className="justify-content-center">
-							<hr className="opacity-75" />
+							<hr className="opacity-75 px-0" />
 							{React.Children.toArray(
 								socialItems.map((item) => {
 									return (
-										<Col xs={2} md={4} lg={3} xl={2}>
+										<Col sm={2} md={4} lg={3} xxl={2}>
 											<a href={item.node.link} target="_blank" rel="noreferrer">
 												<GatsbyImage
 													image={getImage(
