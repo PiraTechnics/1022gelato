@@ -8,7 +8,7 @@ import { Container, Image, Nav, Navbar, Row, Col } from "react-bootstrap";
 const Sidebar = () => {
 	const data = useStaticQuery(graphql`
 		query menuItemsQuery {
-			allStrapiPage {
+			allStrapiPage(sort: { strapi_id: ASC }) {
 				edges {
 					node {
 						id
@@ -43,8 +43,9 @@ const Sidebar = () => {
 			fluid
 			className="py-2 justify-content-center"
 			/* style={{ maxWidth: "200px", minWidth: "150px" }} */
+			style={{ position: "sticky", top: "50px" }}
 		>
-			<Navbar expand="md" className="flex-md-column ">
+			<Navbar expand="md" className="flex-md-column">
 				<Navbar.Brand className="mx-md-auto">
 					<Image src={Logo} className="mb-1" />
 				</Navbar.Brand>
